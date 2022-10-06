@@ -14,6 +14,6 @@ credentials = [
 
 app = Flask(__name__)
 
-@app.route("/api")
+@app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
