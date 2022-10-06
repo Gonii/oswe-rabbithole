@@ -3,7 +3,7 @@ services:
         container_name: web
         image: nginx
         ports:
-            - 80:80            
+            - 5000:5000           
         restart: always
         volumes:
           - ${PWD}/html/:/usr/share/nginx/html/

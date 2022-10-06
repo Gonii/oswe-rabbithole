@@ -1,0 +1,9 @@
+services:
+    web_server:
+        container_name: web
+        image: nginx
+        ports:
+            - 4000:4000            
+        restart: always
+        volumes:
+          - ${PWD}/conf.d/:/etc/nginx/conf.d/
