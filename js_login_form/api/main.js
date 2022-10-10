@@ -16,18 +16,25 @@ credentials = [
 ]
 
 function verifyLogin(username, password){
+    result = false
     credentials.forEach(credential => {
         if (credential["username"] == username && credential["password"] == password){
-            console.log("correct")
+            globalThis.result = true
         }
     })
+    if (result == true){
+        return "Login Successful"
+    }
+    else{
+        return "Login Failed"
+    }
 }
 
 app.post('/', function (req, res) {
     var username = req.body.username
     var password = req.body.password
-    verifyLogin(username,password)
-    res.send('Hello World')
+    var result = verifyLogin(username,password)
+    res.send(result)
 })
 
 app.listen(5000)
