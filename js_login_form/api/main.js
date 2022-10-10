@@ -7,8 +7,29 @@ app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.
 app.use(bodyParser.urlencoded({ extended: true }));
 
+credentials = [
+    {
+        "username":"goni",
+        "password":"oct5"
+    },
+    {
+        "username":"test",
+        "password":"oct6"
+    }
+]
+
+function verifyLogin(username, password){
+    credentials.forEach(credential => {
+        if (credential["username"] == username && credential["password"] == password){
+            console.log("correct")
+        }
+    })
+}
+
 app.post('/', function (req, res) {
-    console.log(req)
+    var username = req.body.username
+    var password = req.body.password
+    verifyLogin(username,password)
     res.send('Hello World')
 })
 
